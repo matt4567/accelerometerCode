@@ -1,5 +1,6 @@
 import serial
 import datetime
+import time
 ser = serial.Serial('/dev/ttyACM0', 9600)
 outf = open('output.txt', 'a')
 outf.truncate(0)
@@ -21,6 +22,8 @@ while (True):
     read_serial = ser.readline()
     s = read_serial.split()
     (x, y, z) = readValue(s)
+    timeNow = time.time()
     if (x != 0):
-        outf.write(str(x) + " " + str(y)+ " " + str(z) + "\n")
+        print((str(timeNow) + " " + str(x) + " " + str(y)+ " " + str(z) + "\n"))
+        outf.write(str(timeNow) + " " + str(x) + " " + str(y)+ " " + str(z) + "\n")
         outf.flush()
