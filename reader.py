@@ -23,6 +23,7 @@ while (True):
     s = read_serial.split()
     (x, y, z) = readValue(s)
     timeNow = time.time()
+#    print(timeNow)
     if (x != 0):
         print((str(timeNow) + " " + str(x) + " " + str(y)+ " " + str(z) + "\n"))
         outf.write(str(timeNow) + " " + str(x) + " " + str(y)+ " " + str(z) + "\n")
